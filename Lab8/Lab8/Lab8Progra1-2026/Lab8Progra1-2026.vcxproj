@@ -143,6 +143,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CheeseRepository.cpp" />
     <ClCompile Include="Classes\DataLoader.cpp" />
     <ClCompile Include="Classes\IngredientSelector.cpp" />
     <ClCompile Include="main.cpp" />
@@ -150,6 +151,7 @@
     <ClCompile Include="Classes\TomatoesRepository.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CheeseRepository.h" />
     <ClInclude Include="Headers\DataLoader.h" />
     <ClInclude Include="Headers\IngredientSelector.h" />
     <ClInclude Include="Headers\PizzaBuilder.h" />
