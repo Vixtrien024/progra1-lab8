@@ -3,6 +3,8 @@
 #include <iostream>
 #include <string>
 
+using namespace std;
+
 PizzaBuilder::PizzaBuilder() {
 }
 
@@ -43,27 +45,27 @@ void PizzaBuilder::BuildPizza() {
     WaitForEnterAndClear();
 }
 
+
 void PizzaBuilder::IrAlSiguienteIngrediente() {
-    // 2 = queso, 3 = carnes, 4 = hierbas.
-    // Hoy ningún miembro ha conectado el suyo, así que cae en default.
     int siguiente = 2;
 
     switch (siguiente) {
     case 2:
-        // TODO queso: descomenta SelectCheese(). No pongas break:
-        // así el switch sigue hasta el default mientras no haya más ingredientes.
-        // SelectCheese();
+        SelectCheese();
+
     case 3:
-        // TODO carnes: descomenta SelectMeat(). No pongas break todavía.
-        // SelectMeat();
+        SelectMeat();
+
     case 4:
-        // TODO hierbas: descomenta SelectHerb(). No pongas break todavía.
-        // SelectHerb();
+        SelectHerb();
+
     default:
-        std::cout << "No existen más ingredientes para tu pizza." << std::endl;
+        cout << "No existen mas ingredientes para tu pizza."
+             << endl;
         break;
     }
 }
+
 
 void PizzaBuilder::MostrarGrupo(const std::string& nombre, const std::vector<std::string>& ingredientes) const {
     std::cout << nombre << " (" << ingredientes.size() << "):" << std::endl;
@@ -170,9 +172,31 @@ void PizzaBuilder::SelectTomatoes() {
 // En IrAlSiguienteIngrediente, descomenta la llamada de tu case.
 
 
-//void PizzaBuilder::SelectCheese() {
-// // Resolver.
-//}
+
+void PizzaBuilder::SelectCheese() {
+    IngredientSelector<CheeseRepository> selector(
+        cheeseRepo_, availableCheeses_, "queso"
+    );
+
+    while (true) {
+        cout << "\n--- Seleccion de quesos ---\n";
+        selector.DisplayAvailableIngredients();
+
+        cout << "\nIngresa un queso (o 'listo'): ";
+
+        string opcion;
+        getline(cin, opcion);
+
+        if (opcion == "listo" || opcion == "LISTO") {
+            break;
+        }
+
+        selector.AddIngredientToPizza(
+            opcion, selectedCheeses_
+        );
+    }
+}
+
 //
 //void PizzaBuilder::SelectHerb() {
 //    // Resolver.
