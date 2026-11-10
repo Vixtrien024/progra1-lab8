@@ -12,7 +12,8 @@ int main() {
         builder.BuildPizza();
         builder.DisplayFinalPizza();
 
-    } catch (const std::exception& ex) {
+    }
+    catch (const std::exception& ex) {
         std::cerr << "Error fatal: " << ex.what() << std::endl;
         return 1;
     }

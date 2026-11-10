@@ -1,0 +1,20 @@
+# Visual Studio cache/archivos internos
+.vs/
+
+# Compilacion
+x64/
+x86/
+Debug/
+Release/
+*.obj
+*.pdb
+*.ipch
+*.idb
+*.ilk
+*.db
+*.opendb
+
+# Otros
+*.user
+.vscode/
+.idea/
