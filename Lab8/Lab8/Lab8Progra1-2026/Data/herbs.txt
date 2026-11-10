@@ -1,8 +1,8 @@
-Basil: 120
+Basil: 119
+Chives: 54
+Sage: 30
+Rosemary: 45
 Parsley: 80
 Oregano: 100
 Thyme: 1
-Rosemary: 45
 Cilantro: 90
-Sage: 30
-Chives: 55

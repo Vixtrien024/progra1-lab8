@@ -12,6 +12,5 @@ public:
     void UpdateQuantity(const std::string& herbType, int newQuantity);
 
 private:
-    std::string filePath_;
-    std::unordered_map<std::string, std::vector<std::string>> data_;
+    mutable std::unordered_map<std::string, std::vector<std::string>> data_;
 };

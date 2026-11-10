@@ -107,7 +107,8 @@ void PizzaBuilder::DisplayFinalPizza() const {
     case 1:
         if (!selectedTomatoes_.empty()) {
             std::cout << "Tu pizza solo tiene tomate." << std::endl;
-        } else {
+        }
+        else {
             std::cout << "Tu pizza tiene un solo tipo de ingrediente." << std::endl;
         }
         break;
@@ -146,7 +147,8 @@ void PizzaBuilder::SelectTomatoes() {
         bool exitosa = selector.AddIngredientToPizza(userChoice, selectedTomatoes_);
         if (exitosa) {
             std::cout << "La selección fue exitosa." << std::endl;
-        } else {
+        }
+        else {
             std::cout << "La selección no fue exitosa." << std::endl;
         }
 
@@ -166,38 +168,38 @@ void PizzaBuilder::SelectTomatoes() {
 // Guarda lo elegido en selectedCheeses_, selectedMeats_ o selectedHerbs_.
 // En IrAlSiguienteIngrediente, descomenta la llamada de tu case.
 
-
 //void PizzaBuilder::SelectCheese() {
-// // Resolver.
-//}
-//
-//void PizzaBuilder::SelectHerb() {
 //    // Resolver.
 //}
 //
 //void PizzaBuilder::SelectMeat() {
 //    // Resolver.
+//}
+
 void PizzaBuilder::SelectHerb() {
-    IngredientSelector<HerbsRepository> selector(
-        herbsRepo_, availableHerbs_, "hierba"
-    );
+    IngredientSelector<HerbsRepository> selector(herbsRepo_, availableHerbs_, "hierba");
 
     while (true) {
-        std::cout << "\n--- Seleccion de hierbas ---\n";
+        std::cout << "\n--- Selección de hierbas ---" << std::endl;
         selector.DisplayAvailableIngredients();
 
-        std::cout << "\nIngresa una hierba (o 'listo'): ";
+        std::cout << "\nIngresa el tipo de hierba (o 'listo' para terminar): ";
+        std::string userChoice;
+        std::getline(std::cin, userChoice);
 
-        std::string opcion;
-        std::getline(std::cin, opcion);
-
-        if (opcion == "listo" || opcion == "LISTO") {
+        if (userChoice == "listo" || userChoice == "LISTO") {
+            system("cls");
             break;
         }
 
-        selector.AddIngredientToPizza(
-            opcion, selectedHerbs_
-        );
+        bool exitosa = selector.AddIngredientToPizza(userChoice, selectedHerbs_);
+        if (exitosa) {
+            std::cout << "La selección fue exitosa." << std::endl;
+        }
+        else {
+            std::cout << "La selección no fue exitosa." << std::endl;
+        }
+
+        WaitForEnterAndClear();
     }
 }
-//}
