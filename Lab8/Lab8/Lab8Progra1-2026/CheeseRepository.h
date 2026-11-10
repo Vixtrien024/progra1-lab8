@@ -1,9 +1,9 @@
 
 #pragma once
+
 #include <string>
 #include <unordered_map>
 #include <vector>
-#include "DataLoader.h"
 
 using namespace std;
 
@@ -12,6 +12,7 @@ public:
     CheeseRepository();
 
     int GetAvailableQuantity(const string& cheeseType) const;
+
     void UpdateQuantity(const string& cheeseType, int newQuantity);
 
 private:

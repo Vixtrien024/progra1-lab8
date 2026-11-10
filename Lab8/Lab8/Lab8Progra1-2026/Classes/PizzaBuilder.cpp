@@ -54,10 +54,10 @@ void PizzaBuilder::IrAlSiguienteIngrediente() {
         SelectCheese();
 
     case 3:
-        SelectMeat();
+       // SelectMeat();
 
     case 4:
-        SelectHerb();
+       // SelectHerb();
 
     default:
         cout << "No existen mas ingredientes para tu pizza."
@@ -173,27 +173,39 @@ void PizzaBuilder::SelectTomatoes() {
 
 
 
+
 void PizzaBuilder::SelectCheese() {
     IngredientSelector<CheeseRepository> selector(
         cheeseRepo_, availableCheeses_, "queso"
     );
 
     while (true) {
-        cout << "\n--- Seleccion de quesos ---\n";
+        cout << "\n--- Seleccion de quesos ---" << endl;
+
         selector.DisplayAvailableIngredients();
 
-        cout << "\nIngresa un queso (o 'listo'): ";
+        cout << "\nIngresa un queso (o 'listo' para terminar): ";
 
         string opcion;
         getline(cin, opcion);
 
         if (opcion == "listo" || opcion == "LISTO") {
+            system("cls");
             break;
         }
 
-        selector.AddIngredientToPizza(
+        bool exitosa = selector.AddIngredientToPizza(
             opcion, selectedCheeses_
         );
+
+        if (exitosa) {
+            cout << "La seleccion fue exitosa." << endl;
+        }
+        else {
+            cout << "La seleccion no fue exitosa." << endl;
+        }
+
+        WaitForEnterAndClear();
     }
 }
 
