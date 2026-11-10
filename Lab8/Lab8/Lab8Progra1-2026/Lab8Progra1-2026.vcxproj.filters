@@ -30,7 +30,10 @@
     <ClCompile Include="Classes\TomatoesRepository.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CheeseRepository.cpp">
+    <ClCompile Include="Classes\CheeseRepository.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\HerbsRepository.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Classes\MeatsRepository.cpp">
@@ -50,7 +53,10 @@
     <ClInclude Include="Headers\TomatoesRepository.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CheeseRepository.h">
+    <ClInclude Include="Headers\CheeseRepository.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\HerbsRepository.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Headers\MeatsRepository.h">
